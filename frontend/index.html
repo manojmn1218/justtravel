@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JustTravel - Discover Your Next Escape</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="brand">
+      <div class="logo-box">JT</div>
+      <div class="brand-text">
+        <span class="brand-name">JustTravel</span>
+        <span class="brand-tagline">discover your next escape</span>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#explore">Explore</a>
+      <a href="#deals">Deals</a>
+      <a href="#blog">Blog</a>
+      <a href="#support">Support</a>
+    </nav>
+
+    <a href="#deals" class="btn-gradient">Book Now</a>
+  </header>
+
+  <main class="hero">
+    <section class="hero-left">
+      <p class="section-label">TOP PICKS</p>
+
+      <h1 class="hero-title">
+        Escape the ordinary-handpicked trips for every kind of traveler
+      </h1>
+
+      <p class="hero-subtitle">
+        Curated destinations, flexible dates and transparent pricing. Find your next adventure
+        with simple search and beautiful inspiration.
+      </p>
+
+      <form id="search-form" class="search-bar">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="what's in your mind"
+          aria-label="Search destination or experience"
+        />
+
+        <div class="search-options">
+          <button type="button" class="dropdown-btn">
+            Flexible dates ▾
+          </button>
+        </div>
+
+        <button type="submit" class="btn-search">
+          Search
+        </button>
+      </form>
+
+      <div class="features">
+        <div class="feature-group">
+          <h3>Handpicked</h3>
+          <ul>
+            <li>Verified stays &amp; experiences</li>
+          </ul>
+        </div>
+
+        <div class="feature-group">
+          <h3>Flexible Booking</h3>
+          <ul>
+            <li>Easily cancel or reschedule</li>
+          </ul>
+        </div>
+
+        <div class="feature-group">
+          <h3>24/7 Support</h3>
+          <ul>
+            <li>Help anytime</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <aside class="hero-right">
+      <div class="hero-image-card">
+        <img
+          src="https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="Beach sunset in Maldives"
+        />
+        <div class="hero-image-tag">
+          Featured: Maldives
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <section id="explore" class="section">
+    <div class="section-header">
+      <h2>Explore by travel mood</h2>
+      <p>Whether you want to relax, explore cities or chase thrills – we’ve got you covered.</p>
+    </div>
+
+    <div class="card-grid">
+      <article class="card">
+        <img src="tpgateway.png" alt="Tropical"/>
+        <span class="badge">Beach escapes</span>
+        <h3>Tropical getaways</h3>
+        <p>Sink into white sands in Bali, Maldives, Goa and more with curated stays right by the sea.</p>
+        <button class="card-btn">View beach trips</button>
+      </article>
+
+      <article class="card">
+        <img src="dubai.png" alt="Dubai"/>
+        <span class="badge">City breaks</span>
+        <h3>Weekend in the city</h3>
+        <p>Discover food, culture and nightlife in destinations like Dubai, Singapore and Bangkok.</p>
+        <button class="card-btn">Explore city trips</button>
+      </article>
+
+      <article class="card">
+        <img src="trekking.png" alt="trekking"/>
+        <span class="badge">Adventure</span>
+        <h3>Mountains &amp; treks</h3>
+        <p>Guided hikes, camping experiences and scenic road trips in the Himalayas and beyond.</p>
+        <button class="card-btn">Find adventures</button>
+      </article>
+    </div>
+  </section>
+
+  <section id="deals" class="section section-dark">
+    <div class="section-header">
+      <h2>Limited-time travel deals</h2>
+      <p>Book now and enjoy exclusive discounts on our most loved packages.</p>
+    </div>
+
+    <div class="card-grid deals-grid">
+      <article class="deal-card">
+        <div class="deal-top">
+          <img src="maldives.png"  alt="Maldives"/>
+          <h3>Maldives overwater villa</h3>
+          <p>4 nights • flights + breakfast</p>
+        </div>
+        <div class="deal-bottom">
+          <span class="price">₹89,999</span>
+          <span class="tag">20% off</span>
+        </div>
+        <button class="card-btn full">Book Maldives deal</button>
+      </article>
+
+      <article class="deal-card">
+        <div class="deal-top">
+          <img src="goa.png" alt="Goa"/>
+          <h3>Goa long weekend</h3>
+          <p>3 nights • boutique stay</p>
+        </div>
+        <div class="deal-bottom">
+          <span class="price">₹14,499</span>
+          <span class="tag">Free cancellation</span>
+        </div>
+        <button class="card-btn full">Book Goa stay</button>
+      </article>
+
+      <article class="deal-card">
+        <div class="deal-top">
+          <img src="himachal.png" alt="Himachal"/>  
+          <h3>Himachal road trip</h3>
+          <p>6 nights • car + stays</p>
+        </div>
+        <div class="deal-bottom">
+          <span class="price">₹32,999</span>
+          <span class="tag">Best seller</span>
+        </div>
+        <button class="card-btn full">Book Himachal trip</button>
+      </article>
+    </div>
+  </section>
+
+  <section id="blog" class="section">
+    <div class="section-header">
+      <h2>From the JustTravel blog</h2>
+      <p>Tips, guides and ideas to help you plan smarter and travel better.</p>
+    </div>
+
+    <div class="card-grid blog-grid">
+      <article class="blog-card">
+        <h3>How to plan a Maldives trip on a budget</h3>
+        <p>Yes, you can do Maldives without breaking the bank. Here’s how to pick islands, stays and ferries wisely.</p>
+        <a href="#" class="link">Read guide →</a>
+      </article>
+
+      <article class="blog-card">
+        <h3>5 long weekend escapes from Bengaluru</h3>
+        <p>Hill stations, beaches and coffee estates – all under a day’s drive from the city.</p>
+        <a href="#" class="link">Read article →</a>
+      </article>
+
+      <article class="blog-card">
+        <h3>Packing checklist for every kind of trip</h3>
+        <p>Never forget essentials again. Download our printable packing list for quick planning.</p>
+        <a href="#" class="link">Get checklist →</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="support" class="section section-dark support-section">
+    <div class="section-header">
+      <h2>Support that travels with you</h2>
+      <p>Questions before booking or need help during your trip? We’re here 24/7.</p>
+    </div>
+
+    <div class="support-grid">
+      <div>
+        <h3>Frequently asked questions</h3>
+        <ul class="faq-list">
+          <li><strong>Can I change my dates?</strong><br>Most trips come with one free date change. Check the “Flexible booking” badge on the trip page.</li>
+          <li><strong>What’s included in the price?</strong><br>Each package clearly lists stays, meals, transfers and experiences before you pay.</li>
+          <li><strong>How do I contact support while travelling?</strong><br>Use the in-app chat or WhatsApp link in your booking email for instant help.</li>
+        </ul>
+      </div>
+
+      <div class="support-actions">
+        <h3>Need help right now?</h3>
+        <p>Talk to a real human travel expert.</p>
+        <button class="card-btn full">Chat with us</button>
+        <button class="card-btn outline full">Request a callback</button>
+        <p class="support-note">Average response time: under 5 minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
