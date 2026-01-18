@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Booking Panel</title>
+<style>
+body {
+    background: #041c3c;
+    color: white;
+    font-family: Arial;
+    padding: 40px;
+}
+.card {
+    background: #0b3568;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 500px;
+}
+</style>
+</head>
+<body>
+
+<h2>Your Bookings</h2>
+
+<div class="card" id="data"></div>
+
+<script>
+const booking = JSON.parse(localStorage.getItem("booking"));
+
+if (booking) {
+    data.innerHTML = `
+        <p><b>Package:</b> ${booking.package}</p>
+        <p><b>Price:</b> ₹${booking.price}</p>
+        <p><b>Name:</b> ${booking.name}</p>
+        <p><b>Email:</b> ${booking.email}</p>
+        <p><b>Phone:</b> ${booking.phone}</p>
+        <p><b>Date:</b> ${booking.date}</p>
+        <p><b>Travelers:</b> ${booking.count}</p>
+    `;
+} else {
+    data.innerText = "No bookings yet.";
+}
+</script>
+
+</body>
+</html>

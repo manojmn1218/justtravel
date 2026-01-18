@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JustTravel</title>
+    <link rel="stylesheet" href="travel.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo-area">
+       <div class="logo">JT</div>
+       <span class="logo-text">JustTravel</span>
+    </div>
+    <nav>
+        <a href="#">Explore</a>
+        <a href="#">Deals</a>
+        <a href="#">Support</a>
+        <a href="#">Bookings</a>
+        <button class="primary-btn"> 
+            <div class="profile-container">
+    <div class="profile-circle" id="profileCircle" onclick="openUpload()">
+        <span id="profileLetter"></span>
+        <img id="profileImg" />
+    </div>
+
+    <input 
+        type="file" 
+        id="profileUpload" 
+        accept="image/*" 
+        hidden 
+        onchange="uploadProfile(event)"
+    />
+</div>
+
+        </button>
+    </nav>
+</header><hr class="line">
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-left">
+        <h1>Escape the ordinary—handpicked trips for every kind of traveler</h1>
+        <p>
+            Curated destinations, flexible dates and transparent pricing.
+            Find your next adventure with simple search and inspiration.
+        </p>
+
+        <div class="search">
+            <input type="text" placeholder="What's on your mind">
+            <button>Search</button>
+        </div>
+
+        <div class="hero-features">
+            <ul>
+              <li><div>✔ Handpicked</div></li>
+              <li><div>✔ Flexible Booking</div></li>
+              <li><div>✔ 24/7 Support</div></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="hero-right">
+        <img src="maldives.png" alt="Maldives">
+        <span class="badge">Featured: Maldives</span>
+    </div>
+</section>
+
+<!-- TRAVEL MOOD -->
+<section class="mood">
+    <span class="tag">TOP PICKS</span>
+    <h2>Explore by travel mood</h2>
+    <p>Whether you want to relax, explore cities or chase thrills—we’ve got you covered.</p>
+
+    <div class="card-grid">
+        <div class="card">
+            <img src="tropical.jpg">
+            <h3>Tropical getaways</h3>
+            <button>View beach trips</button>
+        </div>
+
+        <div class="card">
+            <img src="city.jpeg">
+            <h3>Weekend in the city</h3>
+            <button>Explore city trips</button>
+        </div>
+
+        <div class="card">
+            <img src="trek.png">
+            <h3>Mountains & treks</h3>
+            <button>Find adventures</button>
+        </div>
+    </div>
+</section>
+
+<!-- DEALS -->
+<section class="deals">
+    <h2>Limited-time travel deals</h2>
+
+    <div class="card-grid">
+        <div class="deal-card">
+            <img src="maldives.png">
+            <h3>Maldives overwater villa</h3>
+            <p>₹39,999</p>
+            <button>Book Now</button>
+        </div>
+
+        <div class="deal-card">
+            <img src="goa.png">
+            <h3>Goa long weekend</h3>
+            <p>₹14,499</p>
+            <button>Book Now</button>
+        </div>
+
+        <div class="deal-card">
+            <img src="himachal.png">
+            <h3>Himachal road trip</h3>
+            <p>₹32,999</p>
+            <button>Book Now</button>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2025 JustTravel. All rights reserved.</p>
+</footer>
+
+<script src="travel.js"></script>
+</body>
+</html>

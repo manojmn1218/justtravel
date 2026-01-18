@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking History</title>
+    <style>
+        /* Page background */
+body {
+    margin: 0;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #041c3c, #082f5e);
+    color: #ffffff;
+}
+
+/* Page heading */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    border-collapse: collapse;
+    background: #0b3568;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Table header */
+thead {
+    background: #082f5e;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid #ffffff33;
+}
+
+/* Table body cells */
+td {
+    padding: 14px;
+    border-bottom: 1px solid #ffffff22;
+}
+
+/* Row hover effect */
+tbody tr:hover {
+    background: #0e417d;
+}
+
+/* Empty message row */
+td[colspan] {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+}
+
+/* Status text */
+.status {
+    color: #7CFF9B;
+    font-weight: bold;
+}
+
+/* Responsive (mobile) */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<h1>My Booking History 📖</h1>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Package</th>
+            <th>Travel Date</th>
+            <th>Travelers</th>
+            <th>Price</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="historyTable"></tbody>
+</table>
+<button onclick="back()">Back</button>
+<script>
+    // Logged-in user
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!user) {
+        window.location.href = "login.html";
+    }
+
+    // All bookings
+    const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    const table = document.getElementById("historyTable");
+
+    // Filter bookings by user email
+    const myBookings = bookings.filter(
+        b => b.email === user.email
+    );
+
+    if (myBookings.length === 0) {
+        table.innerHTML = `
+            <tr>
+                <td colspan="5">No bookings found</td>
+            </tr>
+        `;
+    } else {
+        myBookings.forEach(b => {
+            table.innerHTML += `
+                <tr>
+                    <td>${b.package}</td>
+                    <td>${b.date}</td>
+                    <td>${b.count}</td>
+                    <td>₹${b.price}</td>
+                    <td>Confirmed</td>
+                </tr>
+            `;
+        });
+    }
+    function back() {
+        window.location.href = "travel.html"
+    }
+</script>
+
+</body>
+</html>

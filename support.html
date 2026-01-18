@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Support</title>
+
+    <style>
+    body {
+        background: linear-gradient(135deg, #041c3c, #082f5e);
+        font-family: Arial, sans-serif;
+        color: #fff;
+        padding: 40px;
+    }
+
+    .support-container {
+        max-width: 700px;
+        margin: auto;
+        background: #0b3568;
+        padding: 30px;
+        border-radius: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .subtitle {
+        text-align: center;
+        margin-bottom: 30px;
+        opacity: 0.9;
+    }
+
+    .section {
+        margin-bottom: 25px;
+    }
+
+    .section h2 {
+        margin-bottom: 10px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        border: none;
+    }
+
+    textarea {
+        resize: none;
+        height: 100px;
+    }
+
+    button {
+        background: #ff6b8a;
+        color: #fff;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: 0.9;
+    }
+    </style>
+</head>
+
+<body>
+
+<div class="support-container">
+
+    <h1>Support</h1>
+    <p class="subtitle">We’re here to help you</p>
+
+    <!-- Contact Info -->
+    <div class="section">
+        <h2>Contact Information</h2>
+        <p>Email: support@travelwebsite.com</p>
+        <p>Phone: +91 01234 56789</p>
+        <p>Support Hours: 9:00 AM – 6:00 PM</p>
+    </div>
+
+    <!-- Support Form -->
+    <div class="section">
+        <h2>Contact Support</h2>
+        <form onsubmit="saveFeedback(event)">
+            <input id="name" type="text" placeholder="Your Name" required>
+            <input id="email" type="email" placeholder="Your Email" required>
+            <input id="subject" type="text" placeholder="Subject" required>
+            <textarea id="message" placeholder="Describe your issue" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section">
+        <h2>Frequently Asked Questions</h2>
+        <p><strong>How do I book a trip?</strong><br>Choose a deal and click Book Now.</p>
+        <p><strong>Can I cancel my booking?</strong><br>Yes, cancellation depends on the package.</p>
+        <p><strong>When will I get a refund?</strong><br>Refunds are processed within 5–7 working days.</p>
+    </div>
+
+    <!-- Response Time -->
+    <div class="section">
+        <h2>Response Time</h2>
+        <p>We usually respond to queries within 24 hours.</p>
+    </div>
+
+</div>
+
+<script>
+function saveFeedback(e) {
+    e.preventDefault();
+
+    const feedback = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+        date: new Date().toLocaleString()
+    };
+
+    const feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
+    feedbacks.push(feedback);
+    localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
+
+    alert("Feedback submitted successfully");
+    e.target.reset();
+}
+</script>
+
+
+</body>
+</html>

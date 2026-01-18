@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin – Feedback</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<h1>Admin Dashboard 🧑‍💼</h1>
+<h3>User Feedback</h3>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody id="feedbackTable"></tbody>
+</table>
+<button onclick="logout()">Logout</button>
+<br>
+
+<script>
+    const admin = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!admin || admin.role !== "admin") {
+        window.location.href = "admin.html";
+    }
+
+    const feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
+    const table = document.getElementById("feedbackTable");
+
+    if (feedbacks.length === 0) {
+        table.innerHTML = `
+            <tr>
+                <td colspan="5">No feedback available</td>
+            </tr>
+        `;
+    } else {
+        feedbacks.forEach(f => {
+            table.innerHTML += `
+                <tr>
+                    <td>${f.name}</td>
+                    <td>${f.email}</td>
+                    <td>${f.subject}</td>
+                    <td>${f.message}</td>
+                    <td>${f.date}</td>
+                </tr>
+            `;
+        });
+    }
+    function logout() {
+        window.location.href = "admin.html"
+    }
+</script>
+
+</body>
+</html>
+

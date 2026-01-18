@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Payment</title>
+
+<style>
+body {
+    background: linear-gradient(135deg,#041c3c,#082f5e);
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    background: #0b3568;
+    padding: 30px;
+    border-radius: 20px;
+    width: 400px;
+    text-align: center;
+}
+
+button {
+    background: #ff6b8a;
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    width: 100%;
+    color: white;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.methods {
+    text-align: left;
+    margin-top: 15px;
+}
+
+.loading {
+    margin-top: 15px;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Payment</h2>
+
+    <p><b>Amount to Pay:</b> ₹<span id="amount"></span></p>
+
+    <button onclick="showMethods()">Pay Now</button>
+
+    <!-- Payment Methods -->
+    <div id="methods" class="methods hidden">
+
+        <label>
+            <input type="radio" name="pay" onclick="showUPI()"> UPI
+        </label><br>
+
+        <label>
+            <input type="radio" name="pay" onclick="showCard()"> Card
+        </label>
+
+        <!-- UPI -->
+        <div id="upi" class="hidden">
+            <input type="text" id="upiId" placeholder="Enter UPI ID">
+        </div>
+
+        <!-- Card -->
+        <div id="card" class="hidden">
+            <input type="text" id="cardNumber" placeholder="Card Number">
+            <input type="text" id="expiry" placeholder="MM/YY">
+            <input type="password" id="cvv" placeholder="CVV">
+        </div>
+
+        <button onclick="processPayment()">Confirm Payment</button>
+        <div id="loading" class="loading hidden">Processing payment...</div>
+    </div>
+</div>
+
+<script>
+/* Get amount from booking */
+const booking = JSON.parse(localStorage.getItem("booking"));
+document.getElementById("amount").innerText = booking ? booking.price : "0";
+
+function showMethods() {
+    document.getElementById("methods").classList.remove("hidden");
+}
+
+function showUPI() {
+    document.getElementById("upi").classList.remove("hidden");
+    document.getElementById("card").classList.add("hidden");
+}
+
+function showCard() {
+    document.getElementById("card").classList.remove("hidden");
+    document.getElementById("upi").classList.add("hidden");
+}
+
+function processPayment() {
+    const upi = document.getElementById("upiId").value;
+    const card = document.getElementById("cardNumber").value;
+    const expiry = document.getElementById("expiry").value;
+    const cvv = document.getElementById("cvv").value;
+
+    // Validation
+    if (
+        (upi === "" && card === "") ||
+        (card && (!expiry || !cvv))
+    ) {
+        alert("Please enter valid payment details");
+        return;
+    }
+
+    document.getElementById("loading").classList.remove("hidden");
+
+    // Fake delay + success/failure
+    setTimeout(() => {
+        document.getElementById("loading").classList.add("hidden");
+
+        const success = Math.random() > 0.2; // 80% success
+        if (success) {
+            window.location.href = "confirmation.html";
+        } else {
+            alert("Payment failed. Please try again.");
+        }
+    }, 2000);
+}
+</script>
+
+</body>
+</html>

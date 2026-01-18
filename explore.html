@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Explore | Travel Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f1c3f, #0b0f2e);
+            color: #fff;
+            padding: 50px 80px;
+        }
+
+        /* HEADER */
+        .explore-header {
+            margin-bottom: 40px;
+        }
+
+        .explore-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .explore-header p {
+            font-size: 16px;
+            color: #cbd5ff;
+            max-width: 550px;
+            line-height: 1.5;
+        }
+
+        /* CARD CONTAINER */
+        .explore-cards {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* SINGLE CARD */
+        .card {
+            background: linear-gradient(145deg, #162b6f, #101f4f);
+            border-radius: 18px;
+            width: 330px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+
+        .card h2 {
+            font-size: 22px;
+        }
+
+        .card button {
+            width: fit-content;
+            padding: 10px 22px;
+            background: linear-gradient(135deg, #ff8ba7, #ff6f91);
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .card button:hover {
+            opacity: 0.85;
+        }
+        .action-btn {
+         background: #ff6f91;
+         border: none;
+         color: white;
+         padding: 10px 18px;
+         border-radius: 25px;
+         cursor: pointer;
+         font-size: 14px;
+        }
+
+        /* Dropdown container */
+        .dropdown {
+        margin-top: 15px;
+        background: rgba(255,255,255,0.08);
+        border-radius: 12px;
+        padding: 15px;
+        display: none;
+        animation: slideDown 0.3s ease;
+        }
+
+        /* Dropdown list */
+        .dropdown ul {
+        list-style: none;
+        padding: 0;
+        }
+
+.dropdown li {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* Animation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            body {
+                padding: 30px;
+            }
+
+            .explore-cards {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="explore-header">
+        <h1>Explore by travel mood</h1>
+        <p>
+            Whether you want to relax, explore cities or chase thrills — we’ve got you covered.
+        </p>
+    </div>
+
+    <!-- CARDS -->
+    <div class="explore-cards">
+
+        <div class="card">
+            <img src="tropical.jpg" alt="Beach">
+            <h2>Tropical getaways</h2>
+            <button class="action-btn" onclick="toggleDropdown('beach')">
+    View beach trips
+</button>
+
+<div class="dropdown" id="beach">
+    <ul>
+        <li>🏝 Bali – 5 days</li>
+        <li>🌊 Maldives – 4 days</li>
+        <li>🏖 Goa – 3 days</li>
+        <li>💰 Starting from ₹25,000</li>
+    </ul>
+</div>
+
+        </div>
+
+        <div class="card">
+            <img src="city.jpeg" alt="City">
+            <h2>Weekend in the city</h2>
+            <button class="action-btn" onclick="toggleDropdown('city')">
+    Explore city trips
+</button>
+
+<div class="dropdown" id="city">
+    <ul>
+        <li>🏙 London – 2 days</li>
+        <li>🗼 Paris – 3 days</li>
+        <li>🌆 Dubai – 3 days</li>
+        <li>💰 Starting from ₹30,000</li>
+    </ul>
+</div>
+
+        </div>
+
+        <div class="card">
+            <img src="trek.png" alt="Mountains">
+            <h2>Mountains & treks</h2>
+            <button class="action-btn" onclick="toggleDropdown('mountain')">
+    Find adventures
+</button>
+
+<div class="dropdown" id="mountain">
+    <ul>
+        <li>🏔 Himalayas – 7 days</li>
+        <li>🥾 Manali Trek – 5 days</li>
+        <li>❄ Kedarkantha – 4 days</li>
+        <li>💰 Starting from ₹18,000</li>
+    </ul>
+</div>
+
+        </div>
+
+    </div>
+<script>function toggleDropdown(id) {
+    const dropdown = document.getElementById(id);
+
+    // Close other dropdowns
+    document.querySelectorAll('.dropdown').forEach(d => {
+        if (d !== dropdown) d.style.display = "none";
+    });
+
+    // Toggle current dropdown
+    dropdown.style.display =
+        dropdown.style.display === "block" ? "none" : "block";
+}
+</script>
+</body>
+</html>

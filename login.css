@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+/* Blurred Background */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("blurbg.png") no-repeat center center/cover;
+    filter: blur(3px);
+    z-index: -1;
+}
+
+/* Auth Box */
+.auth-container {
+    width: 350px;
+    background: rgba(147, 214, 255, 0.88);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin: 120px auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.auth-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Inputs */
+.auth-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Buttons */
+.auth-container button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    background: #19f1ed;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.auth-container button:hover {
+    background: #37a6f0;
+}
+
+.auth-container p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.auth-container span {
+    color: #2e508a;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Hide form */
+.hidden {
+    display: none;
+}

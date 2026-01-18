@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Trip</title>
+    <style>
+        body {
+            background: linear-gradient(135deg,#041c3c,#082f5e);
+            font-family: Arial;
+            color: white;
+            padding: 40px;
+        }
+        .box {
+            background: #0b3568;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 20px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border: none;
+        }
+        button {
+            background: #ff6b8a;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Booking Details</h2>
+
+    <p><b>Package:</b> <span id="pkg"></span></p>
+    <p><b>Price:</b> ₹<span id="price"></span></p>
+
+    <form onsubmit="goToPayment(event)">
+        <input id="name" type="text" placeholder="Full Name">
+        <input id="email" type="email" placeholder="Email">
+        <input id="phone" type="tel" placeholder="Phone">
+        <input id="date" type="date">
+        <input id="count" type="number" placeholder="Travelers">
+
+        <button type="submit">Proceed to Payment</button>
+    </form>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+document.getElementById("pkg").innerText = params.get("package");
+document.getElementById("price").innerText = params.get("price");
+
+function goToPayment(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const phone = document.getElementById("phone");
+    const date = document.getElementById("date");
+    const count = document.getElementById("count");
+
+    if (
+        !name.value ||
+        !email.value ||
+        !phone.value ||
+        !date.value ||
+        !count.value
+    ) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    const booking = {
+        package: params.get("package"),
+        price: params.get("price"),
+        name: name.value,
+        email: email.value,
+        phone: phone.value,
+        date: date.value,
+        count: count.value
+    };
+
+    localStorage.setItem("booking", JSON.stringify(booking));
+    window.location.href = "payment.html";
+}
+</script>
+
+
+</body>
+</html>
+

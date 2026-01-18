@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Booking Receipt</title>
+<style>
+body {
+    font-family: Arial;
+    padding: 40px;
+}
+
+.box {
+    border: 2px solid #000;
+    padding: 30px;
+    max-width: 500px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="box" id="receipt">
+    <h2>Travel Booking Receipt</h2>
+
+    <p><b>Package:</b> <span id="pkg"></span></p>
+    <p><b>Price:</b> ₹<span id="price"></span></p>
+    <p><b>Name:</b> <span id="name"></span></p>
+    <p><b>Email:</b> <span id="email"></span></p>
+    <p><b>Phone:</b> <span id="phone"></span></p>
+    <p><b>Travel Date:</b> <span id="date"></span></p>
+    <p><b>Travelers:</b> <span id="count"></span></p>
+
+    <p><b>Status:</b> Confirmed</p>
+</div>
+
+<center>
+    <button onclick="window.print()">Download / Print Receipt</button>
+</center>
+
+<script>
+const r = JSON.parse(localStorage.getItem("receipt"));
+
+document.getElementById("pkg").innerText = r.package;
+document.getElementById("price").innerText = r.price;
+document.getElementById("name").innerText = r.name;
+document.getElementById("email").innerText = r.email;
+document.getElementById("phone").innerText = r.phone;
+document.getElementById("date").innerText = r.date;
+document.getElementById("count").innerText = r.count;
+</script>
+
+</body>
+</html>
